@@ -1,22 +1,63 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   return (
-    <form action="" className="d-block">
-      <nav className="mb-5 d-flex justify-content-around">
-        <Link to="/login" className="nav-link">SIGN IN</Link>
-        <Link to="/register" className="nav-link">SIGN UP</Link>
-      </nav>
-      <div className="mb-4">
-        <input type="text" placeholder="USERNAME" className="input" required autoFocus/>
-      </div>
-      <div className="mb-5">
-        <input type="password" placeholder="PASSWORD" className="input" required/>
-      </div>
-      <button className="btn btn-lg button fw-bold d-block mx-auto rounded-pill">Login</button>
-    </form>
+    <div className="container">
+      <form action="" className="d-block">
+        <nav className="mb-5 d-flex justify-content-around">
+          <NavLink to="/login" className="nav-link">
+            SIGN IN
+          </NavLink>
+          <NavLink to="/register" className="nav-link">
+            SIGN UP
+          </NavLink>
+        </nav>
+        <div className="mb-4">
+          <input
+            type="text"
+            placeholder="FULL NAME"
+            className="input"
+            required
+            autoFocus
+          />
+        </div>
+        <div className="mb-4">
+          <input
+            type="text"
+            placeholder="USERNAME"
+            className="input"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <input type="email" placeholder="EMAIL" className="input" required />
+        </div>
+        <div className="mb-4">
+          <input
+            type="password"
+            placeholder="PASSWORD"
+            className="input"
+            required
+          />
+        </div>
+        <div className="mb-5">
+          <input
+            type="password"
+            placeholder="CONFIRM PASSWORD"
+            className="input"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="btn btn-lg button fw-bold d-block mx-auto rounded-pill"
+        >
+          Register
+        </button>
+      </form>
+    </div>
   );
 };
 
-export default Login;
+export default Register;

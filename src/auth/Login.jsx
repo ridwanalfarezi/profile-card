@@ -1,17 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   return (
     <div className="container">
       <form action="" className="d-block">
         <nav className="mb-5 d-flex justify-content-around">
-          <Link to="/login" className="nav-link">
+          <NavLink to="/login" className="nav-link">
             SIGN IN
-          </Link>
-          <Link to="/register" className="nav-link">
+          </NavLink>
+          <NavLink to="/register" className="nav-link">
             SIGN UP
-          </Link>
+          </NavLink>
         </nav>
         <div className="mb-4">
           <input
