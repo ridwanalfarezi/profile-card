@@ -20,6 +20,7 @@ form {
   -webkit-backdrop-filter: blur(5px);
   border-radius: 20px;
   padding: 2rem 4rem;
+  box-shadow: 0 8px 32px 0 rgb(25, 167, 206, 0.1);; 
 }
 
 .nav-link {
@@ -32,6 +33,10 @@ form {
   color: var(--primary);
   border-bottom: 3px solid var(--primary);
   transition: 0.1s all;
+}
+
+.nav-link:focus {
+  color: var(--primary);
 }
 
 .active {
@@ -63,6 +68,13 @@ form {
 }
 
 .button:hover {
+  border: none;
   color: #fff;
   background-color: #146C94;
+}
+
+.button:focus {
+  border: none !important;
+  color: #fff !important;
+  background-color: #0f4b67 !important;
 }
