@@ -78,3 +78,68 @@ form {
   color: #fff !important;
   background-color: #0f4b67 !important;
 }
+
+
+/* Card */
+.card-container {
+  margin: 3rem auto;
+  max-width: 30%;
+  background-color: #F0EEED;
+  /* box-shadow: 0 8px 8px 0 rgba(255, 255, 255, 0.1);;  */
+  height: 85vh;
+  overflow: hidden;
+  text-align: center;
+  /* color: #fff; */
+}
+
+.card-bg {
+  width: 100%;
+  height: 32%;
+  background-image: url('bg.jpg');
+  margin-bottom: 100px;
+}
+
+.edit {
+  top: 15px;
+  right: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.edit:hover {
+  color: var(--primary);
+}
+
+.card-bg img {
+  width: 40%;
+  bottom: -80px;
+  left: 140px;
+}
+
+.content {
+  padding: 0 4rem;
+  color: #0f2027;
+}
+
+.content-name {
+  font-weight: 700;
+}
+
+.content-job {
+  font-style: italic;
+}
+
+.desc {
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+
+.socials a {
+  text-decoration: none;
+  color: #0f2027;
+}
+
+.socials a:hover {
+  color: var(--primary);
+}
