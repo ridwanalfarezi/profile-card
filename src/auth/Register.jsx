@@ -5,7 +5,7 @@ const Register = () => {
   return (
     <div className="container">
       <form action="" className="d-block">
-        <nav className="mb-5 d-flex justify-content-around">
+        <nav className="mb-5 d-flex justify-content-between">
           <NavLink to="/login" className="nav-link">
             SIGN IN
           </NavLink>
