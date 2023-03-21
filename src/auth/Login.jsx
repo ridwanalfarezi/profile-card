@@ -13,7 +13,8 @@ const Login = () => {
             SIGN UP
           </NavLink>
         </nav>
-        <div className="mb-4">
+        <div className="mb-4 d-flex gap-2 align-items-center input-content">
+          <i class="bi bi-person fs-3"></i>
           <input
             type="text"
             placeholder="USERNAME"
@@ -22,7 +23,8 @@ const Login = () => {
             autoFocus
           />
         </div>
-        <div className="mb-5">
+        <div className="mb-5 d-flex gap-2 align-items-center input-content">
+          <i class="bi bi-key fs-3"></i>
           <input
             type="password"
             placeholder="PASSWORD"

@@ -43,22 +43,24 @@ form {
   border-bottom: 3px solid var(--primary);
 }
 
+.input-content {
+  border-bottom: 2px solid var(--primary);
+  transition: .1s all;
+  color: var(--primary);
+}
+
 .input {
   background-color: transparent;
+  color: var(--primary);
   border: none;
   padding-block: 10px;
-  color: var(--primary);
   font-size: 1.2rem;
   display: block;
   width: 100%;
-  border-bottom: 2px solid var(--primary);
-  transition: .1s all;
 }
 
 .input:focus {
   outline: none;
-  border-bottom: 4px solid var(--primary);
-  transition: .1s all;
 }
 
 .button {
