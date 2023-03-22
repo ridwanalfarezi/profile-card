@@ -1,35 +1,21 @@
 import { toast } from "react-hot-toast";
 
-// Validate Login Page Username
+export async function loginValidation(values) {
+  const errors = {};
+  const specialChars = /^[a-zA-Z0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]*$/;
+  
+  if (!values.username && !values.password) {
+    errors.username = toast.error("Username and Password required");
+  } else if (values.username.includes(" ") && values.password.includes(" ")) {
+    errors.username = toast.error("Invalid Username and Password");
+  } else if (values.username.length <= 2) {
+    errors.username = toast.error("Username must be at least 3 characters");
+  } else if (values.password.length <= 8) {
+    errors.password = toast.error("Password must be at least 8 characters");
+  } else if (!specialChars.test(values.password)) {
+    errors.password = toast.error("Password must contain a special character!");
+  }
 
-export async function usernameValidate(values) {
-    const errors = usernameVerify({}, values);
 
-    return errors;
-}
-
-// Validate Login Page Password
-
-export async function passwordValidate(values) {
-    const errors = passwordVerify({}, values);
-
-    return errors;
-}
-
-// Validate username
-function usernameVerify(error = {}, values) {
-    if(!values.username) {
-        error.username = toast.error("Username Required!");
-    } else if(values.username.includes(" ")) {
-        error.username = toast.error("Invalid Username!");
-    }
-}
-
-// Validate password
-function passwordVerify(error = {}, values) {
-    if(!values.password) {
-        error.password = toast.error("Password Required!");
-    } else if(values.password.includes(" ")) {
-        error.password = toast.error("Invalid Password!");
-    }
+  return errors;
 }
