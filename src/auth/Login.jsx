@@ -14,7 +14,7 @@ const Login = () => {
           </NavLink>
         </nav>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-person fs-3"></i>
+          <i className="bi bi-person fs-3"></i>
           <input
             type="text"
             placeholder="USERNAME"
@@ -24,7 +24,7 @@ const Login = () => {
           />
         </div>
         <div className="mb-5 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-key fs-3"></i>
+          <i className="bi bi-key fs-3"></i>
           <input
             type="password"
             placeholder="PASSWORD"

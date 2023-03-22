@@ -14,7 +14,7 @@ const Register = () => {
           </NavLink>
         </nav>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-person-circle fs-3"></i>
+          <i className="bi bi-person-circle fs-3"></i>
           <input
             type="text"
             placeholder="FULL NAME"
@@ -24,7 +24,7 @@ const Register = () => {
           />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-person fs-3"></i>
+          <i className="bi bi-person fs-3"></i>
           <input
             type="text"
             placeholder="USERNAME"
@@ -33,19 +33,19 @@ const Register = () => {
           />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-building fs-3"></i>
+          <i className="bi bi-building fs-3"></i>
           <input type="text" placeholder="CITY" className="input" required />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-flag fs-3"></i>
+          <i className="bi bi-flag fs-3"></i>
           <input type="text" placeholder="COUNTRY" className="input" required />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-person-workspace fs-3"></i>
+          <i className="bi bi-person-workspace fs-3"></i>
           <input type="text" placeholder="JOB" className="input" required />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-key fs-3"></i>
+          <i className="bi bi-key fs-3"></i>
           <input
             type="password"
             placeholder="PASSWORD"
@@ -54,7 +54,7 @@ const Register = () => {
           />
         </div>
         <div className="mb-5 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-key fs-3"></i>
+          <i className="bi bi-key fs-3"></i>
           <input
             type="password"
             placeholder="CONFIRM PASSWORD"

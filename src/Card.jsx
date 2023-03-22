@@ -6,7 +6,7 @@ const Card = () => {
         <div className='card-container rounded-4'>            
             <div className='card-bg position-relative'>
                 <Link to="/edit" className='edit position-absolute'>
-                    <i class="bi bi-pencil-square fs-5"></i>
+                    <i className="bi bi-pencil-square fs-5"></i>
                 </Link>
                 <img src="ridwan.jfif" className='rounded-circle d-block position-absolute'/>
             </div>
@@ -17,13 +17,13 @@ const Card = () => {
                 <p className='desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate enim cumque vel iure sequi delectus obcaecati illo nemo, itaque fugit.</p>
                 <div className='d-flex justify-content-around my-5 fs-2 socials'>
                     <a href="" target="_blank">
-                        <i class="bi bi-instagram"></i>
+                        <i className="bi bi-instagram"></i>
                     </a>
                     <a href="" target="_blank">
-                        <i class="bi bi-facebook"></i>
+                        <i className="bi bi-facebook"></i>
                     </a>
                     <a href="" target="_blank">
-                        <i class="bi bi-twitter"></i>
+                        <i className="bi bi-twitter"></i>
                     </a>
                 </div>
             </div>
