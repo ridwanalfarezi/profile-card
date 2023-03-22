@@ -20,7 +20,7 @@ form {
   -webkit-backdrop-filter: blur(5px);
   border-radius: 20px;
   padding: 2rem 4rem;
-  box-shadow: 0 8px 32px 0 rgb(25, 167, 206, 0.1);; 
+  box-shadow: 0 8px 32px 0 rgb(25, 167, 206, 0.1);
 }
 
 .nav-link {
@@ -45,7 +45,7 @@ form {
 
 .input-content {
   border-bottom: 2px solid var(--primary);
-  transition: .1s all;
+  transition: 0.1s all;
   color: var(--primary);
 }
 
@@ -72,7 +72,7 @@ form {
 .button:hover {
   border: none;
   color: #fff;
-  background-color: #146C94;
+  background-color: #146c94;
 }
 
 .button:focus {
@@ -81,12 +81,11 @@ form {
   background-color: #0f4b67 !important;
 }
 
-
 /* Card */
 .card-container {
   margin: 2.5rem auto;
   max-width: 28rem;
-  background-color: #F0EEED;
+  background-color: #f0eeed;
   overflow: hidden;
   text-align: center;
 }
@@ -94,7 +93,7 @@ form {
 .card-bg {
   width: 100%;
   height: 15rem;
-  background-image: url('bg.jpg');
+  background-image: url("bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -136,7 +135,6 @@ form {
   line-height: 1.5;
 }
 
-
 .socials a {
   text-decoration: none;
   color: #0f2027;
@@ -146,4 +144,84 @@ form {
   color: var(--primary);
 }
 
+/* Edit */
 
+.edit-container {
+  margin: 2.5rem auto;
+  max-width: 40rem;
+}
+
+
+.edit-title {
+  color: var(--primary);
+  font-weight: 700;
+  text-align: center;
+}
+
+.edit-container label {
+  color: var(--primary);
+  font-size: 1.4rem;
+}
+
+.form-control {
+  border: none;
+  border-bottom: 2px solid var(--primary); 
+  background-color: transparent !important;
+  color: #62CDFF !important;
+  border-radius: 0;
+  padding-inline: 3px;
+  font-size: 1.2rem;
+  transition: .1s;
+}
+
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-bottom: 4px solid var(--primary); 
+  transition: .1s;
+}
+
+textarea {
+  resize: none;
+  padding-inline: 0.7rem !important;
+  border: 2px solid var(--primary) !important;
+}
+
+textarea:focus {
+  border: 3px solid var(--primary) !important;
+}
+
+.btn-discard {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-discard:hover {
+  color: #fff;
+  background-color: var(--primary);
+}
+
+.btn-discard:focus {
+  border: none;
+  color: #fff !important;
+  background-color: #146c94 !important;
+}
+
+
+.btn-save {
+  color: #fff;
+  border: none;
+  background-color: var(--primary);
+}
+
+.btn-save:hover {
+  border: none;
+  color: #fff;
+  background-color: #146c94;
+}
+
+.btn-save:focus {
+  border: none !important;
+  color: #fff !important;
+  background-color: #0f4b67 !important;
+}
