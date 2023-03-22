@@ -33,8 +33,16 @@ const Register = () => {
           />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
-          <i class="bi bi-envelope fs-3"></i>
-          <input type="email" placeholder="EMAIL" className="input" required />
+          <i class="bi bi-building fs-3"></i>
+          <input type="text" placeholder="CITY" className="input" required />
+        </div>
+        <div className="mb-4 d-flex gap-2 align-items-center input-content">
+          <i class="bi bi-flag fs-3"></i>
+          <input type="text" placeholder="COUNTRY" className="input" required />
+        </div>
+        <div className="mb-4 d-flex gap-2 align-items-center input-content">
+          <i class="bi bi-person-workspace fs-3"></i>
+          <input type="text" placeholder="JOB" className="input" required />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
           <i class="bi bi-key fs-3"></i>
