@@ -19,7 +19,7 @@ const Edit = () => {
   return (
     <div className="edit-container">
       <form action="" className="d-block py-5">
-        <h1 className="edit-title mb-5">EDIT CARD PROFILE</h1>
+        <h1 className="edit-title mb-5">EDIT PROFILE CARD</h1>
         <div className="mb-4">
           <label htmlFor="fname" className="d-flex align-items-center gap-2">
             <i className="bi bi-person-circle"></i>
@@ -42,7 +42,7 @@ const Edit = () => {
               </span>
             </label>
             {image && (
-              <img src={image} alt="Avatar" className="rounded-circle w-25" />
+              <img src={image} alt="Avatar" className="rounded-circle w-50" />
             )}
             <input
               type="file"
@@ -59,7 +59,7 @@ const Edit = () => {
         </div>
         <div className="mb-4">
           <div
-            className="d-flex align-items-center gap-2 mb-3"
+            className="d-flex flex-wrap align-items-center gap-2 mb-3"
             style={{ color: "var(--primary)", fontSize: "1.4rem" }}
           >
             <i class="bi bi-image"></i>
@@ -72,11 +72,7 @@ const Edit = () => {
               </span>
             </label>
             {bg && (
-              <img
-                src={bg}
-                alt="Background Profile"
-                className="rounded w-25"
-              />
+              <img src={bg} alt="Background Profile" className="rounded w-50" />
             )}
             <input
               type="file"
@@ -158,7 +154,8 @@ const Edit = () => {
         </div>
         <div className="d-flex justify-content-between">
           <button
-            type="submit"
+            to="/"
+            type="reset"
             className="btn btn-lg btn-discard fw-bold rounded-pill px-4"
           >
             Discard
