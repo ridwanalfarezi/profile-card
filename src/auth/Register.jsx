@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useFormik } from "formik";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import { registerValidation } from "./validate";
 
 const Register = () => {
@@ -18,10 +18,21 @@ const Register = () => {
     validate: registerValidation,
     validateOnBlur: false,
     validateOnChange: false,
-    onSubmit: async (values) => {
-      console.log(values);
+    onSubmit: async () => {
+      toast.success("Register Successfully!");
     },
   });
+
+  // useEffect(() => {
+  //   if (formik.errors) {
+  //     Object.values(formik.errors).forEach((error) => {
+  //       toast.error(error);
+  //     });
+  //   } else {
+  //     toast.success("Register Successfully!");
+  //   }
+  // }, [formik.errors]);
+  
 
   return (
     <div className="container">

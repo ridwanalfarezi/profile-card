@@ -8,6 +8,10 @@ export async function loginValidation(values) {
     errors.username = toast.error("Username and Password required");
   } else if (values.username.includes(" ") && values.password.includes(" ")) {
     errors.username = toast.error("Invalid Username and Password");
+  } else if (/\s/.test(values.username) || /\s/.test(values.password)) {
+    errors.username = toast.error(
+      "Space doesn't allowed for username and password!"
+    );
   } else if (values.username.length < 3) {
     errors.username = toast.error("Username must be at least 3 characters");
   } else if (values.password.length < 8) {
@@ -33,11 +37,10 @@ export async function registerValidation(values) {
     !values.cpassword
   ) {
     errors.fname = toast.error("Data Required!");
-  } else if (
-    /\s/.test(values.username) ||
-    /\s/.test(values.password)
-  ) {
-    errors.username = toast.error("Space doesn't allowed for username and password!");
+  } else if (/\s/.test(values.username) || /\s/.test(values.password)) {
+    errors.username = toast.error(
+      "Space doesn't allowed for username and password!"
+    );
   } else if (values.fname.length < 4) {
     errors.fname = toast.error("Full Name must be at least 3 characters!");
   } else if (values.username.length < 3) {
