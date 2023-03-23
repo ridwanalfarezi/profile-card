@@ -64,6 +64,7 @@ form {
 }
 
 .button {
+  border: none;
   width: 60%;
   color: #fff;
   background-color: var(--primary);
