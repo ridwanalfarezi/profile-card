@@ -226,3 +226,17 @@ textarea:focus {
   color: #fff !important;
   background-color: #0f4b67 !important;
 }
+
+.img-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bg-preview {
+  width: 200px;
+  height: 112.5px;
+  border-radius: 5%;
+  object-fit: cover;
+}

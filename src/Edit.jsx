@@ -36,13 +36,13 @@ const Edit = () => {
             <span>AVATAR</span>
           </div>
           <div className="d-flex justify-content-around align-items-center">
-            <label htmlFor="previewImg" className="upload">
+            <label htmlFor="previewImg">
               <span className="btn btn-lg button d-block w-100">
                 Upload Image
               </span>
             </label>
             {image && (
-              <img src={image} alt="Avatar" className="rounded-circle w-50" />
+              <img src={image} alt="Avatar" className="img-preview" />
             )}
             <input
               type="file"
@@ -66,13 +66,13 @@ const Edit = () => {
             <span>BACKGROUND PROFILE</span>
           </div>
           <div className="d-flex justify-content-around align-items-center">
-            <label htmlFor="previewBg" className="upload">
+            <label htmlFor="previewBg">
               <span className="btn btn-lg button d-block w-100">
                 Upload Image
               </span>
             </label>
             {bg && (
-              <img src={bg} alt="Background Profile" className="rounded w-50" />
+              <img src={bg} alt="Background Profile" className="bg-preview" />
             )}
             <input
               type="file"
