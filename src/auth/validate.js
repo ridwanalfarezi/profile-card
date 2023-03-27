@@ -28,7 +28,7 @@ export async function registerValidation(values) {
   const specialChars = /^[a-zA-Z0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]*$/;
 
   if (
-    !values.fname ||
+    !values.fullname ||
     !values.username ||
     !values.city ||
     !values.country ||
@@ -36,13 +36,13 @@ export async function registerValidation(values) {
     !values.password ||
     !values.cpassword
   ) {
-    errors.fname = toast.error("Data Required!");
+    errors.fullname = toast.error("Data Required!");
   } else if (/\s/.test(values.username) || /\s/.test(values.password)) {
     errors.username = toast.error(
       "Space doesn't allowed for username and password!"
     );
-  } else if (values.fname.length < 4) {
-    errors.fname = toast.error("Full Name must be at least 3 characters!");
+  } else if (values.fullname.length < 4) {
+    errors.fullname = toast.error("Full Name must be at least 3 characters!");
   } else if (values.username.length < 3) {
     errors.username = toast.error("Username must be at least 3 characters!");
   } else if (values.password.length < 8) {

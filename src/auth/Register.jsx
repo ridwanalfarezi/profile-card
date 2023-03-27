@@ -1,13 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { toast, Toaster } from "react-hot-toast";
 import { registerValidation } from "./validate";
+import axios from "axios";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
-      fname: "",
+      fullname: "",
       username: "",
       city: "",
       country: "",
@@ -18,21 +21,29 @@ const Register = () => {
     validate: registerValidation,
     validateOnBlur: false,
     validateOnChange: false,
-    onSubmit: async () => {
-      toast.success("Register Successfully!");
+    onSubmit: async (values) => {
+      try {
+        const response = await axios.post(
+          "https://profile-card-api.vercel.app/api/register",
+          {
+            fullname: values.fullname,
+            username: values.username,
+            city: values.city,
+            country: values.country,
+            job: values.job,
+            password: values.password,
+            cpassword: values.cpassword,
+          }
+        );
+        console.log(response.data);
+        toast.success("Register Successfully!");
+        setTimeout(() => navigate("/login"), 1000);
+      } catch (error) {
+        console.error(error);
+        toast.error("Register Failed!");
+      }
     },
   });
-
-  // useEffect(() => {
-  //   if (formik.errors) {
-  //     Object.values(formik.errors).forEach((error) => {
-  //       toast.error(error);
-  //     });
-  //   } else {
-  //     toast.success("Register Successfully!");
-  //   }
-  // }, [formik.errors]);
-  
 
   return (
     <div className="container">
@@ -49,12 +60,13 @@ const Register = () => {
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
           <i className="bi bi-person-circle fs-3"></i>
           <input
-            {...formik.getFieldProps("fname")}
+            {...formik.getFieldProps("fullname")}
             type="text"
             placeholder="FULL NAME"
             className="input"
-            name="fname"
+            name="fullname"
             autoFocus
+            autoComplete="off"
           />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
@@ -65,6 +77,7 @@ const Register = () => {
             placeholder="USERNAME"
             className="input"
             name="username"
+            autoComplete="off"
           />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
@@ -75,6 +88,7 @@ const Register = () => {
             placeholder="CITY"
             className="input"
             name="city"
+            autoComplete="off"
           />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
@@ -85,6 +99,7 @@ const Register = () => {
             placeholder="COUNTRY"
             className="input"
             name="country"
+            autoComplete="off"
           />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
@@ -95,6 +110,7 @@ const Register = () => {
             placeholder="JOB"
             className="input"
             name="job"
+            autoComplete="off"
           />
         </div>
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
@@ -105,6 +121,7 @@ const Register = () => {
             placeholder="PASSWORD"
             className="input"
             name="password"
+            autoComplete="off"
           />
         </div>
         <div className="mb-5 d-flex gap-2 align-items-center input-content">
@@ -115,6 +132,7 @@ const Register = () => {
             placeholder="CONFIRM PASSWORD"
             className="input"
             name="cpassword"
+            autoComplete="off"
           />
         </div>
         <button

@@ -1,33 +1,41 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { toast, Toaster } from "react-hot-toast";
+import axios from "axios";
 import { loginValidation } from "./validate";
 
 const Login = () => {
-  const formik =  useFormik({
+  const [token, setToken] = useState("");
+  const navigate = useNavigate();
+
+  const formik = useFormik({
     initialValues: {
-      username: '',
-      password: '',
+      username: "",
+      password: "",
     },
     validate: loginValidation,
     validateOnBlur: false,
     validateOnChange: false,
-    onSubmit: async () => {
-      toast.success("Login Successfully!")
-    }
-  })
-
-  // useEffect(() => {
-  //   if (formik.errors) {
-  //     Object.values(formik.errors).forEach((error) => {
-  //       toast.error(error);
-  //     });
-  //   } else {
-  //     toast.success("Register Successfully!");
-  //   }
-  // }, [formik.errors]);
-  
+    onSubmit: async (values) => {
+      try {
+        const response = await axios.post(
+          "https://profile-card-api.vercel.app/api/login",
+          {
+            username: values.username,
+            password: values.password,
+          }
+        );
+        console.log(response.data);
+        setToken(response.data.token);
+        toast.success("Login Successfully!");
+        setTimeout(() => navigate("/"), 1000);
+      } catch (error) {
+        console.error(error);
+        toast.error("Login Failed!");
+      }
+    },
+  });
 
   return (
     <div className="container">
@@ -44,23 +52,28 @@ const Login = () => {
         <div className="mb-4 d-flex gap-2 align-items-center input-content">
           <i className="bi bi-person fs-3"></i>
           <input
-            {...formik.getFieldProps('username')}
+            {...formik.getFieldProps("username")}
             type="text"
             placeholder="USERNAME"
             className="input"
             name="username"
-            />
+            autoComplete="off"
+          />
         </div>
         <div className="mb-5 d-flex gap-2 align-items-center input-content">
           <i className="bi bi-key fs-3"></i>
           <input
-            {...formik.getFieldProps('password')}
+            {...formik.getFieldProps("password")}
             type="password"
             placeholder="PASSWORD"
             className="input"
+            autoComplete="off"
           />
         </div>
-        <button type="submit" className="btn btn-lg button fw-bold d-block mx-auto rounded-pill">
+        <button
+          type="submit"
+          className="btn btn-lg button fw-bold d-block mx-auto rounded-pill"
+        >
           Login
         </button>
       </form>
