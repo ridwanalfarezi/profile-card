@@ -28,8 +28,9 @@ const Login = () => {
         );
         console.log(response.data);
         setToken(response.data.token);
+        localStorage.setItem("token", response.data.token); // Simpan token pada localStorage
         toast.success("Login Successfully!");
-        setTimeout(() => navigate("/"), 1000);
+        setTimeout(() => navigate("/"), 500);
       } catch (error) {
         console.error(error);
         toast.error("Login Failed!");
