@@ -108,8 +108,15 @@ form {
   color: #fff;
 }
 
-.edit:hover {
+.edit:hover, .logout:hover {
   color: var(--primary);
+}
+
+.logout {
+  top: 15px;
+  left: 20px;
+  text-decoration: none;
+  color: #fff;
 }
 
 .card-bg img {
@@ -152,6 +159,10 @@ form {
   max-width: 40rem;
 }
 
+.back {
+  text-decoration: none;
+  color: var(--primary);
+}
 
 .edit-title {
   color: var(--primary);
@@ -239,4 +250,21 @@ textarea:focus {
   height: 112.5px;
   border-radius: 5%;
   object-fit: cover;
+}
+
+
+/* Responsive */
+
+@media (max-width: 450px) {
+  .back i {
+    font-size: 1.5rem !important;
+  }
+
+  .edit-title {
+    font-size: 1.4rem;
+  }
+
+  .edit-container span {
+    font-size: 1.1rem;
+  }
 }

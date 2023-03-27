@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Edit = () => {
   const [image, setImage] = useState(null);
@@ -19,7 +20,12 @@ const Edit = () => {
   return (
     <div className="edit-container">
       <form action="" className="d-block py-5">
-        <h1 className="edit-title mb-5">EDIT PROFILE CARD</h1>
+        <div className="edit-header d-flex align-items-center mb-5">
+          <Link to="/" className="back">
+            <i class="bi bi-arrow-left-circle fs-1"></i>
+          </Link>
+          <h1 className="edit-title mx-auto m-0">EDIT PROFILE CARD</h1>
+        </div>
         <div className="mb-4">
           <label htmlFor="fname" className="d-flex align-items-center gap-2">
             <i className="bi bi-person-circle"></i>
@@ -41,9 +47,7 @@ const Edit = () => {
                 Upload Image
               </span>
             </label>
-            {image && (
-              <img src={image} alt="Avatar" className="img-preview" />
-            )}
+            {image && <img src={image} alt="Avatar" className="img-preview" />}
             <input
               type="file"
               accept="img/*"
