@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const Edit = () => {
   const [image, setImage] = useState(null);
-  const [bg, setBg] = useState(null);
 
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -11,17 +10,11 @@ const Edit = () => {
     }
   };
 
-  const handleBgChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setBg(URL.createObjectURL(event.target.files[0]));
-    }
-  };
-
   return (
     <div className="edit-container">
       <form action="" className="d-block py-5">
         <div className="edit-header d-flex align-items-center mb-5">
-          <Link to="/" className="back">
+          <Link to="/:username" className="back">
             <i class="bi bi-arrow-left-circle fs-1"></i>
           </Link>
           <h1 className="edit-title mx-auto m-0">EDIT PROFILE CARD</h1>
@@ -59,36 +52,6 @@ const Edit = () => {
           </div>
           <p className="text-center mt-3" style={{ color: "var(--primary)" }}>
             Recomendation resolution 1 : 1
-          </p>
-        </div>
-        <div className="mb-4">
-          <div
-            className="d-flex flex-wrap align-items-center gap-2 mb-3"
-            style={{ color: "var(--primary)", fontSize: "1.4rem" }}
-          >
-            <i class="bi bi-image"></i>
-            <span>BACKGROUND PROFILE</span>
-          </div>
-          <div className="d-flex justify-content-around align-items-center">
-            <label htmlFor="previewBg">
-              <span className="btn btn-lg button d-block w-100">
-                Upload Image
-              </span>
-            </label>
-            {bg && (
-              <img src={bg} alt="Background Profile" className="bg-preview" />
-            )}
-            <input
-              type="file"
-              accept="img/*"
-              className="form-control"
-              id="previewBg"
-              onChange={handleBgChange}
-              hidden
-            />
-          </div>
-          <p className="text-center mt-3" style={{ color: "var(--primary)" }}>
-            Recomendation resolution 16 : 9
           </p>
         </div>
         <div className="mb-4">
