@@ -7,6 +7,7 @@ import { loginValidation } from "./validate";
 
 const Login = () => {
   const [token, setToken] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -19,6 +20,7 @@ const Login = () => {
     validateOnChange: false,
     onSubmit: async (values) => {
       try {
+        setIsLoading(true);
         const response = await axios.post(
           "https://profile-card-api.vercel.app/api/login",
           {
@@ -35,6 +37,8 @@ const Login = () => {
       } catch (error) {
         console.error(error);
         toast.error("Login Failed!");
+      } finally {
+        setIsLoading(false);
       }
     },
   });
@@ -72,12 +76,23 @@ const Login = () => {
             autoComplete="off"
           />
         </div>
-        <button
-          type="submit"
-          className="btn btn-lg button fw-bold d-block mx-auto rounded-pill"
-        >
-          Login
-        </button>
+        {isLoading ? (
+          <button
+            type="submit"
+            className="btn btn-lg button fw-bold d-block mx-auto rounded-pill"
+          >
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className="btn btn-lg button fw-bold d-block mx-auto rounded-pill"
+          >
+            Login
+          </button>
+        )}
       </form>
     </div>
   );

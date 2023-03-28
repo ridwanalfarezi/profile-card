@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Card = () => {
   const [userData, setUserData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -19,7 +21,7 @@ const Card = () => {
             },
           }
         );
-        const data = response.data;
+        const data = response.data.data;
         console.log(data);
         setUserData(data);
         setIsLoading(false);
@@ -36,25 +38,40 @@ const Card = () => {
     city,
     country,
     job,
-    description,
+    about,
     facebook,
     instagram,
     twitter,
   } = userData;
 
+  const logout = () => {
+    localStorage.removeItem("username");
+    localStorage.removeItem("token");
+    toast.success("You are Logged Out");
+    setTimeout(() => navigate("/login"), 1000);
+  };
+
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <div class="d-flex justify-content-center">
+          <div
+            className="spinner-border text-white text-center"
+            role="status"
+            style={{ marginTop: "20rem", width: '5rem', height: '5rem' }}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
       ) : (
         <div className="card-container rounded-4">
           <div className="card-bg position-relative">
             <Link to="/edit" className="edit position-absolute">
               <i className="bi bi-pencil-square fs-5"></i>
             </Link>
-            <Link to="/logout" className="logout position-absolute">
+            <button onClick={logout} className="logout position-absolute">
               <i className="bi bi-box-arrow-left fs-5"></i>
-            </Link>
+            </button>
             <img
               src={avatar}
               alt={fullname}
@@ -67,17 +84,23 @@ const Card = () => {
               {city}, {country}
             </h6>
             <h3 className="content-job">{job}</h3>
-            <p className="desc">{description}</p>
+            <p className="desc">{about}</p>
             <div className="d-flex justify-content-around my-5 fs-2 socials">
-              <a href={instagram} target="_blank">
-                <i className="bi bi-instagram"></i>
-              </a>
-              <a href={facebook} target="_blank">
-                <i className="bi bi-facebook"></i>
-              </a>
-              <a href={twitter} target="_blank">
-                <i className="bi bi-twitter"></i>
-              </a>
+              {instagram ? (
+                <a href={instagram} target="_blank">
+                  <i className="bi bi-instagram"></i>
+                </a>
+              ) : null}
+              {facebook ? (
+                <a href={facebook} target="_blank">
+                  <i className="bi bi-facebook"></i>
+                </a>
+              ) : null}
+              {twitter ? (
+                <a href={twitter} target="_blank">
+                  <i className="bi bi-twitter"></i>
+                </a>
+              ) : null}
             </div>
           </div>
         </div>

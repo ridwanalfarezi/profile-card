@@ -117,6 +117,8 @@ form {
   left: 20px;
   text-decoration: none;
   color: #fff;
+  background-color: transparent;
+  border: none;
 }
 
 .card-bg img {

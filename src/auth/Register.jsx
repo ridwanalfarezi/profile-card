@@ -4,9 +4,11 @@ import { useFormik } from "formik";
 import { toast, Toaster } from "react-hot-toast";
 import { registerValidation } from "./validate";
 import axios from "axios";
+import { useState } from "react";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -23,6 +25,7 @@ const Register = () => {
     validateOnChange: false,
     onSubmit: async (values) => {
       try {
+        setIsLoading(true);
         const response = await axios.post(
           "https://profile-card-api.vercel.app/api/register",
           {
@@ -41,6 +44,8 @@ const Register = () => {
       } catch (error) {
         console.error(error);
         toast.error("Register Failed!");
+      } finally {
+        setIsLoading(false);
       }
     },
   });
@@ -135,12 +140,23 @@ const Register = () => {
             autoComplete="off"
           />
         </div>
-        <button
-          type="submit"
-          className="btn btn-lg button fw-bold d-block mx-auto rounded-pill"
-        >
-          Register
-        </button>
+        {isLoading ? (
+          <button
+            type="submit"
+            className="btn btn-lg button fw-bold d-block mx-auto rounded-pill"
+          >
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className="btn btn-lg button fw-bold d-block mx-auto rounded-pill"
+          >
+            Register
+          </button>
+        )}
       </form>
     </div>
   );
