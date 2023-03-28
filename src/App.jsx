@@ -9,7 +9,7 @@ import Edit from "./Edit";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Card />} />
+      <Route path="/:username" element={<Card />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/logout" />
