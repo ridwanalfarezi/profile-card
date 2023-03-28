@@ -12,7 +12,6 @@ function App() {
       <Route path="/:username" element={<Card />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/logout" />
       <Route path="/edit" element={<Edit />} />
     </Routes>
   );
