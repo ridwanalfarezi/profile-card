@@ -33,7 +33,7 @@ const Login = () => {
         localStorage.setItem("token", response.data.token); // Simpan token pada localStorage
         localStorage.setItem("username", response.data.username); // Simpan username pada localStorage
         toast.success("Login Successfully!");
-        setTimeout(() => navigate(`/`), 1000);
+        setTimeout(() => navigate(`/`), 1500);
       } catch (error) {
         console.error(error);
         toast.error("Login Failed!");

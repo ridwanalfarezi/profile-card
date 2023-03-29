@@ -96,7 +96,7 @@ const Edit = () => {
         },
       })
       .then((response) => {
-        toast.success("Updated Successfully");
+        toast.success("Updated Successfully!");
         setTimeout(() => navigate(`/`), 2000);
         console.log(response);
       })
@@ -160,15 +160,16 @@ const Edit = () => {
               <i className="bi bi-person-bounding-box"></i>
               <span>AVATAR</span>
             </div>
-            <div className="d-flex justify-content-around align-items-center">
-              <label htmlFor="previewImg">
-                <span className="btn btn-lg button d-block w-100">
-                  Upload Image
-                </span>
-              </label>
-              {image && (
-                <img src={image} alt="Avatar" className="img-preview" />
-              )}
+            <div className="d-flex justify-content-center align-items-center">
+              <div className="avatar-container">
+                <img src={image} alt="Avatar" className="avatar-image" />
+                <div
+                  className="avatar-overlay"
+                  onClick={() => document.getElementById("previewImg").click()}
+                >
+                  <div>Change Avatar</div>
+                </div>
+              </div>
               <input
                 type="file"
                 accept="img/*"
@@ -179,9 +180,10 @@ const Edit = () => {
               />
             </div>
             <p className="text-center mt-3" style={{ color: "var(--primary)" }}>
-              Recomendation resolution 1 : 1
+              Recommendation resolution 1 : 1
             </p>
           </div>
+
           <div className="mb-4">
             <label htmlFor="city" className="d-flex align-items-center gap-2">
               <i className="bi bi-building"></i>
@@ -236,7 +238,11 @@ const Edit = () => {
               <span>ABOUT</span>
             </label>
             <textarea
-              className="form-control"
+              className={
+                about.length > 200
+                  ? "form-control border-danger"
+                  : "form-control"
+              }
               id="about"
               rows="8"
               value={about}

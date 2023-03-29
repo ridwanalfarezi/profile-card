@@ -49,10 +49,10 @@ const Card = () => {
   const logout = () => {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
+    navigate("/login");
     setTimeout(() => {
-      navigate("/login");
-      toast.success("You are Logged Out");
-    }, 500)
+      toast.success("You're Logged Out!");
+    }, 500);
   };
 
   return (
