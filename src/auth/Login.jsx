@@ -33,7 +33,7 @@ const Login = () => {
         localStorage.setItem("token", response.data.token); // Simpan token pada localStorage
         localStorage.setItem("username", response.data.username); // Simpan username pada localStorage
         toast.success("Login Successfully!");
-        setTimeout(() => navigate(`/${response.data.username}`), 500);
+        setTimeout(() => navigate(`/`), 1000);
       } catch (error) {
         console.error(error);
         toast.error("Login Failed!");
@@ -81,8 +81,8 @@ const Login = () => {
             type="submit"
             className="btn btn-lg button fw-bold d-block mx-auto rounded-pill"
           >
-            <div class="spinner-border" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </button>
         ) : (

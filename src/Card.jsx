@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { BeatLoader } from "react-spinners";
 
 const Card = () => {
   const [userData, setUserData] = useState({});
@@ -17,7 +18,7 @@ const Card = () => {
           `https://profile-card-api.vercel.app/api/${username}`,
           {
             headers: {
-              Authorization: `Bearer ${token}`, // Kirim token sebagai header Authorization
+              Authorization: `Bearer ${token}`,
             },
           }
         );
@@ -27,6 +28,7 @@ const Card = () => {
         setIsLoading(false);
       } catch (error) {
         console.log(error);
+        navigate("/login");
       }
     };
     fetchUserData();
@@ -47,21 +49,20 @@ const Card = () => {
   const logout = () => {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
-    toast.success("You are Logged Out");
-    setTimeout(() => navigate("/login"), 1000);
+    setTimeout(() => {
+      navigate("/login");
+      toast.success("You are Logged Out");
+    }, 500)
   };
 
   return (
     <>
       {isLoading ? (
-        <div class="d-flex justify-content-center">
-          <div
-            className="spinner-border text-white text-center"
-            role="status"
-            style={{ marginTop: "20rem", width: '5rem', height: '5rem' }}
-          >
-            <span className="visually-hidden">Loading...</span>
-          </div>
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "100vh" }}
+        >
+          <BeatLoader color="#19a7ce" />
         </div>
       ) : (
         <div className="card-container rounded-4">
