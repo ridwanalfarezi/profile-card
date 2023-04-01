@@ -51,4 +51,4 @@ npm run dev
 ## Authors
 
 - [@ridwanalfarezi](https://www.github.com/ridwanalfarezi)
-
+- [@badzlan](https://www.github.com/badzlan)
