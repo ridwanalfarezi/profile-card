@@ -25,7 +25,7 @@ const Edit = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          `https://profile-card-api.vercel.app/api/${username}`,
+          `https://api-profile-card.vercel.app/api/${username}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -51,23 +51,49 @@ const Edit = () => {
     fetchUserData();
   }, []);
 
-  const handleImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const formData = new FormData();
-      formData.append("image", event.target.files[0]);
+  // const handleImageChange = (event) => {
+  //   if (event.target.files && event.target.files[0]) {
+  //     const formData = new FormData();
+  //     formData.append("image", event.target.files[0]);
+
+  //     axios
+  //       .put(
+  //         `https://api-profile-card.vercel.app/api/${username}/edit`,
+  //         formData,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`,
+  //           },
+  //         }
+  //       )
+  //       .then((response) => {
+  //         setImage(URL.createObjectURL(event.target.files[0]));
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }
+  // };
+
+  const handleImageChange = async (event) => {
+    const file = event.target.files[0];
+    const base64 = await convertToBase64(file);
+
+    if (base64) {
+      const image = {
+        avatar: base64
+      };
 
       axios
-        .put(
-          `https://profile-card-api.vercel.app/api/${username}/edit`,
-          formData,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
+        .put(`https://api-profile-card.vercel.app/api/${username}/edit`, image, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
         .then((response) => {
-          setImage(URL.createObjectURL(event.target.files[0]));
+          setImage(base64);
+          console.log(response);
+          console.log(base64);
         })
         .catch((error) => {
           console.log(error);
@@ -90,7 +116,7 @@ const Edit = () => {
     };
 
     axios
-      .put(`https://profile-card-api.vercel.app/api/${username}/edit`, data, {
+      .put(`https://api-profile-card.vercel.app/api/${username}/edit`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -115,6 +141,19 @@ const Edit = () => {
     setFacebook("");
     setTwitter("");
     setImage(null);
+  };
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      }
+    });
   };
 
   return (

@@ -27,7 +27,7 @@ const Register = () => {
       try {
         setIsLoading(true);
         const response = await axios.post(
-          "https://profile-card-api.vercel.app/api/register",
+          "https://api-profile-card.vercel.app/api/register",
           {
             fullname: values.fullname,
             username: values.username,
