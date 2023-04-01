@@ -61,7 +61,7 @@ const Edit = () => {
       };
 
       axios
-        .put(`http://localhost:3333/api/${username}/edit`, image, {
+        .put(`https://api-profile-card.vercel.app/api/${username}/edit`, image, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
