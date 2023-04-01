@@ -123,7 +123,6 @@ form {
 }
 
 .card-bg img {
-  width: 40%;
   bottom: -80px;
   left: 30%;
   width: 180px;
@@ -320,6 +319,8 @@ textarea::-webkit-scrollbar-thumb:hover {
   }
 
   .card-bg img {
-    left: 25%;
+    left: 29.5%;
+    width: 160px;
+    height: 160px;
   }
 }
