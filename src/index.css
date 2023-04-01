@@ -125,7 +125,10 @@ form {
 .card-bg img {
   width: 40%;
   bottom: -80px;
-  left: 32%;
+  left: 30%;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
 }
 
 .content {
@@ -314,5 +317,9 @@ textarea::-webkit-scrollbar-thumb:hover {
 
   .edit-container span {
     font-size: 1.1rem;
+  }
+
+  .card-bg img {
+    left: 25%;
   }
 }

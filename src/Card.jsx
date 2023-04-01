@@ -75,7 +75,7 @@ const Card = () => {
             <img
               src={avatar}
               alt={fullname}
-              className="rounded-circle d-block position-absolute"
+              className="rounded-circle d-block position-absolute card-avatar"
             />
           </div>
           <div className="content">
