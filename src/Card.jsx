@@ -23,7 +23,6 @@ const Card = () => {
           }
         );
         const data = response.data.data;
-        console.log(data);
         setUserData(data);
         setIsLoading(false);
       } catch (error) {

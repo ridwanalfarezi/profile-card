@@ -28,7 +28,6 @@ const Login = () => {
             password: values.password,
           }
         );
-        console.log(response.data);
         setToken(response.data.token);
         localStorage.setItem("token", response.data.token); // Simpan token pada localStorage
         localStorage.setItem("username", response.data.username); // Simpan username pada localStorage

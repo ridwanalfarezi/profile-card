@@ -51,49 +51,23 @@ const Edit = () => {
     fetchUserData();
   }, []);
 
-  // const handleImageChange = (event) => {
-  //   if (event.target.files && event.target.files[0]) {
-  //     const formData = new FormData();
-  //     formData.append("image", event.target.files[0]);
-
-  //     axios
-  //       .put(
-  //         `https://api-profile-card.vercel.app/api/${username}/edit`,
-  //         formData,
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${token}`,
-  //           },
-  //         }
-  //       )
-  //       .then((response) => {
-  //         setImage(URL.createObjectURL(event.target.files[0]));
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   }
-  // };
-
   const handleImageChange = async (event) => {
     const file = event.target.files[0];
-    const base64 = await convertToBase64(file);
+    const avatar = await convertToBase64(file);
 
-    if (base64) {
+    if (avatar) {
       const image = {
-        avatar: base64
+        avatar
       };
 
       axios
-        .put(`https://api-profile-card.vercel.app/api/${username}/edit`, image, {
+        .put(`http://localhost:3333/api/${username}/edit`, image, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
         .then((response) => {
-          setImage(base64);
-          console.log(response);
-          console.log(base64);
+          setImage(avatar);
         })
         .catch((error) => {
           console.log(error);
@@ -124,7 +98,6 @@ const Edit = () => {
       .then((response) => {
         toast.success("Updated Successfully!");
         setTimeout(() => navigate(`/`), 2000);
-        console.log(response);
       })
       .catch((error) => {
         console.log(error);

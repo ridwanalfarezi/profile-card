@@ -38,7 +38,6 @@ const Register = () => {
             cpassword: values.cpassword,
           }
         );
-        console.log(response.data);
         toast.success("Register Successfully!");
         setTimeout(() => navigate("/login"), 500);
       } catch (error) {
