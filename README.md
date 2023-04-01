@@ -1,5 +1,5 @@
 
-![Logo](https://www.vhv.rs/dpng/d/590-5903330_reactjs-logo-react-js-transparent-icon-hd-png.png)
+![Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/MERN-logo.png/640px-MERN-logo.png)
 
 
 # Project Overview
