@@ -22,7 +22,7 @@ const Login = () => {
       try {
         setIsLoading(true);
         const response = await axios.post(
-          "https://api-profile-card.vercel.app/api/login",
+          "https://profile-card-api.vercel.app/api/login",
           {
             username: values.username,
             password: values.password,

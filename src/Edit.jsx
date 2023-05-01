@@ -25,7 +25,7 @@ const Edit = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          `https://api-profile-card.vercel.app/api/${username}`,
+          `https://profile-card-api.vercel.app/api/${username}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -61,7 +61,7 @@ const Edit = () => {
       };
 
       axios
-        .put(`https://api-profile-card.vercel.app/api/${username}/edit`, image, {
+        .put(`https://profile-card-api.vercel.app/api/${username}/edit`, image, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -90,7 +90,7 @@ const Edit = () => {
     };
 
     axios
-      .put(`https://api-profile-card.vercel.app/api/${username}/edit`, data, {
+      .put(`https://profile-card-api.vercel.app/api/${username}/edit`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

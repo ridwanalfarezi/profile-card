@@ -15,7 +15,7 @@ const Card = () => {
       const token = localStorage.getItem("token");
       try {
         const response = await axios.get(
-          `https://api-profile-card.vercel.app/api/${username}`,
+          `https://profile-card-api.vercel.app/api/${username}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

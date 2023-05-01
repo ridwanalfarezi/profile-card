@@ -39,7 +39,7 @@ cd profile-card
 
 #### 3. Install dependencies 
 ```
-npm Install
+npm install
 ```
 
 #### 4. Running Project 
