@@ -21,7 +21,7 @@ Website : https://rnb-profile-card.vercel.app/
 
 ## API Source
 
-[api-profile-card](https://github.com/badzlan/api-profile-card)
+[profile-card-api](https://github.com/badzlan/profile-card-api)
 
 Created By [@badzlan](https://www.github.com/badzlan)
 
