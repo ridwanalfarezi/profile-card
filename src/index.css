@@ -5,11 +5,16 @@
 body {
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   font-family: "Poppins", sans-serif;
+  height: 100vh;
 }
 
+
 .container {
-  margin: 1.3rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 28rem;
+  min-height: 100vh;
 }
 
 /* Auth */
@@ -84,7 +89,6 @@ form {
 
 /* Card */
 .card-container {
-  margin: 2.5rem auto;
   max-width: 28rem;
   background-color: #f0eeed;
   overflow: hidden;
@@ -160,7 +164,8 @@ form {
 /* Edit */
 
 .edit-container {
-  margin: 2.5rem auto;
+  margin: auto;
+  padding-block: 2.5rem;
   max-width: 40rem;
 }
 
