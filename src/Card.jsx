@@ -11,11 +11,10 @@ const Card = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const username = localStorage.getItem("username");
       const token = localStorage.getItem("token");
       try {
         const response = await axios.get(
-          `https://profile-card-api.vercel.app/api/${username}`,
+          `https://profile-card-api.vercel.app/api/user`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -46,7 +45,6 @@ const Card = () => {
   } = userData;
 
   const logout = () => {
-    localStorage.removeItem("username");
     localStorage.removeItem("token");
     navigate("/login");
     setTimeout(() => {

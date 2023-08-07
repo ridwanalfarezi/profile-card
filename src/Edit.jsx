@@ -18,14 +18,13 @@ const Edit = () => {
 
   const navigate = useNavigate();
 
-  const username = localStorage.getItem("username");
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          `https://profile-card-api.vercel.app/api/${username}`,
+          `https://profile-card-api.vercel.app/api/user`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -61,7 +60,7 @@ const Edit = () => {
       };
 
       axios
-        .put(`https://profile-card-api.vercel.app/api/${username}/edit`, image, {
+        .put(`https://profile-card-api.vercel.app/api/user`, image, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -90,7 +89,7 @@ const Edit = () => {
     };
 
     axios
-      .put(`https://profile-card-api.vercel.app/api/${username}/edit`, data, {
+      .put(`https://profile-card-api.vercel.app/api/user`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
